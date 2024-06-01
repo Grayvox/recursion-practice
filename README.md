@@ -1,3 +1,8 @@
 # Recursion in Ruby
 
-Fibonacci and Merge Sort built with recursion. Built for practicing recursion.
+Two mini projects built for practicing recursion in Ruby.
+
+**Projects finished:**
+
+- [x] Fibonacci
+- [x] Merge Sort
