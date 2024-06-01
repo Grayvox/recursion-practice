@@ -1,12 +1,17 @@
 # frozen_string_literal: true
 
 def merge_sort(arr = [])
-  return arr if arr.length < 2
+  return arr if arr.length <= 1
 
   center = arr.length / 2
-  center += 1 if arr.length.odd?
-  left = merge_sort(arr.slice(0, center))
-  right = merge_sort(arr.slice(center, arr.length))
-end
+  left_sub = merge_sort(arr[...center])
+  right_sub = merge_sort(arr[center...])
 
-merge_sort([4, 3, 2, 5, 1, 6, 7])
+  sorted = []
+  until left_sub.empty? || right_sub.empty?
+    next sorted << right_sub.shift if left_sub.first > right_sub.first
+
+    sorted << left_sub.shift
+  end
+  sorted.concat(left_sub, right_sub)
+end
